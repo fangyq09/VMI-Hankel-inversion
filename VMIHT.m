@@ -41,7 +41,7 @@ for ii = 1:NoF
     FT = transpose(FT);
     % do Hankel transform
     HT = FT(:,LenT-LenTp+1:LenT)*MAT;
-		HT = DT.*HT;
+    HT = DT.*HT;
     % the intensity should be a nonnegative function
     HT(HT<0) = 0;
     hinv(:,:,ii) = HT;
@@ -53,7 +53,7 @@ for ii = 1:NoF
     Iv = Iv*diag(sin(Thetas));
     speed = sum(transpose(Iv),'omitnan');
     speed = DTheta.*R.*speed;
-		IE(:,ii) = speed;
+    IE(:,ii) = speed;
 end
 out = struct('E',E,'IE',IE,'hinv',hinv);
 end
